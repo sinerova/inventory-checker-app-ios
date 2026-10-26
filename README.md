@@ -1,3 +1,5 @@
+# For my own personal use. Will not maintain and will be vibecoded
+
 # InventoryWatch
 
 macOS app to monitor Apple Store pickup availability for iPhone, Apple Watch, Mac, iPad, AirPods, HomePod, and Apple Vision Pro.
