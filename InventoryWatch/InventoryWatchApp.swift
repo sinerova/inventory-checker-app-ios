@@ -86,6 +86,7 @@ final class AppUpdater: NSObject, ObservableObject, SPUUpdaterDelegate {
 struct InventoryWatchApp: App {
     @StateObject var model: ViewModel
     @StateObject private var updater: AppUpdater
+    @AppStorage("appAppearance") private var appAppearance: AppAppearance = .system
 
     init() {
         LegacyPreferencesMigration.migrateIfNeeded()
@@ -98,6 +99,13 @@ struct InventoryWatchApp: App {
             ContentView()
                 .environmentObject(model)
                 .environmentObject(updater)
+                .preferredColorScheme(appAppearance.colorScheme)
+                .onAppear {
+                    appAppearance.applyMacOSAppearance()
+                }
+                .onChange(of: appAppearance) { _, newAppearance in
+                    newAppearance.applyMacOSAppearance()
+                }
         }
         .windowStyle(HiddenTitleBarWindowStyle())
         .commands {
@@ -120,11 +128,30 @@ struct InventoryWatchApp: App {
                 })
                     .keyboardShortcut("r", modifiers: .command)
             }
+            CommandGroup(after: .toolbar) {
+                Menu("Appearance") {
+                    ForEach(AppAppearance.allCases) { appearance in
+                        Toggle(
+                            appearance.displayName,
+                            isOn: Binding(
+                                get: { appAppearance == appearance },
+                                set: { isSelected in
+                                    if isSelected {
+                                        appAppearance = appearance
+                                        appearance.applyMacOSAppearance()
+                                    }
+                                }
+                            )
+                        )
+                    }
+                }
+            }
         }
         
         Settings {
             SettingsView()
                 .environmentObject(model)
+                .preferredColorScheme(appAppearance.colorScheme)
         }
     }
 }

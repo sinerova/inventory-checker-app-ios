@@ -51,18 +51,59 @@ struct CatalogRoot: Codable {
     let country_mappings: [String: CatalogCountryMap]?
 }
 
+final class CatalogMemoryCache: @unchecked Sendable {
+    static let shared = CatalogMemoryCache()
+    private var cache: [URL: CatalogRoot] = [:]
+    private var fileListCache: [String: [URL]] = [:]
+    private let lock = NSLock()
+
+    private init() {}
+
+    func files(for prefix: String) -> [URL] {
+        lock.lock()
+        defer { lock.unlock() }
+        if let cached = fileListCache[prefix] {
+            return cached
+        }
+        let candidates = Bundle.main.urls(forResourcesWithExtension: "json", subdirectory: nil) ?? []
+        let matched = candidates.filter { url in
+            let name = url.deletingPathExtension().lastPathComponent
+            let lc = name.lowercased()
+            return lc.hasPrefix(prefix) && lc.hasSuffix("-intl")
+        }
+        fileListCache[prefix] = matched
+        return matched
+    }
+
+    func root(for url: URL) -> CatalogRoot? {
+        lock.lock()
+        defer { lock.unlock() }
+        if let existing = cache[url] {
+            return existing
+        }
+        guard let data = try? Data(contentsOf: url),
+              let decoded = try? JSONDecoder().decode(CatalogRoot.self, from: data) else {
+            return nil
+        }
+        cache[url] = decoded
+        return decoded
+    }
+
+    func clear() {
+        lock.lock()
+        defer { lock.unlock() }
+        cache.removeAll()
+        fileListCache.removeAll()
+    }
+}
+
 protocol CategoryCatalog {
     static var filePrefix: String { get }
 }
 
 extension CategoryCatalog {
     @MainActor static func modelJSONFiles() -> [URL] {
-        let candidates = Bundle.main.urls(forResourcesWithExtension: "json", subdirectory: nil) ?? []
-        return candidates.filter { url in
-            let name = url.deletingPathExtension().lastPathComponent
-            let lc = name.lowercased()
-            return lc.hasPrefix(filePrefix) && lc.hasSuffix("-intl")
-        }
+        CatalogMemoryCache.shared.files(for: filePrefix)
     }
 
     @MainActor static func categoriesSourcePages(for country: Country) -> [String] {
@@ -70,11 +111,9 @@ extension CategoryCatalog {
         let lc = country.shortcode.lowercased()
         let uc = country.shortcode.uppercased()
         for url in modelJSONFiles() {
-            guard let data = try? Data(contentsOf: url) else { continue }
-            if let root = try? JSONDecoder().decode(CatalogRoot.self, from: data) {
-                if let byCountry = root.discovered_models?[lc] ?? root.discovered_models?[uc] {
-                    for (token, _) in byCountry { tokens.insert(token) }
-                }
+            guard let root = CatalogMemoryCache.shared.root(for: url) else { continue }
+            if let byCountry = root.discovered_models?[lc] ?? root.discovered_models?[uc] {
+                for (token, _) in byCountry { tokens.insert(token) }
             }
         }
         return Array(tokens).sorted()
@@ -84,7 +123,7 @@ extension CategoryCatalog {
         let lc = country.shortcode.lowercased()
         let uc = country.shortcode.uppercased()
         for url in modelJSONFiles() {
-            guard let data = try? Data(contentsOf: url), let root = try? JSONDecoder().decode(CatalogRoot.self, from: data) else { continue }
+            guard let root = CatalogMemoryCache.shared.root(for: url) else { continue }
             if let name = root.country_mappings?[lc]?.localization?.token_display?[sourcePage] { return name }
             if let name = root.country_mappings?[uc]?.localization?.token_display?[sourcePage] { return name }
         }
@@ -95,12 +134,10 @@ extension CategoryCatalog {
         let lc = country.shortcode.lowercased()
         let uc = country.shortcode.uppercased()
         for url in modelJSONFiles() {
-            guard let data = try? Data(contentsOf: url) else { continue }
-            if let root = try? JSONDecoder().decode(CatalogRoot.self, from: data) {
-                if let byCountry = root.discovered_models?[lc] ?? root.discovered_models?[uc],
-                   let node = byCountry[sourcePage], let skus = node.skus, skus.isEmpty == false {
-                    return skus
-                }
+            guard let root = CatalogMemoryCache.shared.root(for: url) else { continue }
+            if let byCountry = root.discovered_models?[lc] ?? root.discovered_models?[uc],
+               let node = byCountry[sourcePage], let skus = node.skus, skus.isEmpty == false {
+                return skus
             }
         }
         return nil
@@ -110,11 +147,9 @@ extension CategoryCatalog {
         let lc = country.shortcode.lowercased()
         let uc = country.shortcode.uppercased()
         for url in modelJSONFiles() {
-            guard let data = try? Data(contentsOf: url) else { continue }
-            if let root = try? JSONDecoder().decode(CatalogRoot.self, from: data) {
-                if let byCountry = root.discovered_models?[lc] ?? root.discovered_models?[uc] {
-                    for (_, node) in byCountry { if let md = node.skus?[sku] { return md } }
-                }
+            guard let root = CatalogMemoryCache.shared.root(for: url) else { continue }
+            if let byCountry = root.discovered_models?[lc] ?? root.discovered_models?[uc] {
+                for (_, node) in byCountry { if let md = node.skus?[sku] { return md } }
             }
         }
         return nil
@@ -124,14 +159,12 @@ extension CategoryCatalog {
         let lc = country.shortcode.lowercased()
         let uc = country.shortcode.uppercased()
         for url in modelJSONFiles() {
-            guard let data = try? Data(contentsOf: url) else { continue }
-            if let root = try? JSONDecoder().decode(CatalogRoot.self, from: data) {
-                if let byCountry = root.discovered_models?[lc] ?? root.discovered_models?[uc],
-                   let node = byCountry[token], let nodeURL = node.url, let u = URL(string: nodeURL) { return u }
-                if let cm = root.country_mappings?[lc] ?? root.country_mappings?[uc], let path = cm.shop_paths?[token] {
-                    let full = "https://www.apple.com/\(lc)/\(path)"
-                    if let u = URL(string: full) { return u }
-                }
+            guard let root = CatalogMemoryCache.shared.root(for: url) else { continue }
+            if let byCountry = root.discovered_models?[lc] ?? root.discovered_models?[uc],
+               let node = byCountry[token], let nodeURL = node.url, let u = URL(string: nodeURL) { return u }
+            if let cm = root.country_mappings?[lc] ?? root.country_mappings?[uc], let path = cm.shop_paths?[token] {
+                let full = "https://www.apple.com/\(lc)/\(path)"
+                if let u = URL(string: full) { return u }
             }
         }
         return nil

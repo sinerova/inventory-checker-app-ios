@@ -14,6 +14,7 @@ struct ContentView: View {
     @AppStorage("lastUpdateDate") private var lastUpdateDate: String = ""
     @AppStorage("useLargeText") private var useLargeText: Bool = false
     @AppStorage("shouldIncludeNearbyStores") private var shouldIncludeNearbyStores: Bool = true
+    @AppStorage("appAppearance") private var appAppearance: AppAppearance = .system
     @State private var storesByCountry: [String: [RetailStore]] = [:]
 
     private var onlyShowingPreferredResults: Bool {
@@ -144,6 +145,10 @@ struct ContentView: View {
             maxHeight: .infinity,
             alignment: .center
         )
+        .preferredColorScheme(appAppearance.colorScheme)
+        .onChange(of: appAppearance) { _, newAppearance in
+            newAppearance.applyMacOSAppearance()
+        }
         .onAppear {
             Task {
                 await model.fetchLatestInventory()
@@ -161,12 +166,7 @@ struct ContentView: View {
     }
 
     static func storeLocationLabel(store: RetailStore?, storeNumber: String, includeNearbyStores: Bool) -> String {
-        guard !storeNumber.isEmpty else { return "No store selected" }
-        let relation = includeNearbyStores ? "Near" : "At"
-        guard let store else { return "\(relation) selected store (\(storeNumber))" }
-        let name = store.name.hasPrefix("Apple ") ? store.name : "Apple \(store.name)"
-        let location = store.address.cityStateDisplay
-        return location.isEmpty ? "\(relation) \(name)" : "\(relation) \(name) — \(location)"
+        StoreLocationFormatter.storeLocationLabel(store: store, storeNumber: storeNumber, includeNearbyStores: includeNearbyStores)
     }
 
     @ViewBuilder

@@ -107,6 +107,20 @@ final class ViewModel: ObservableObject {
         Task { await fetchLatestInventory() }
     }
 
+    func removeSearchConfigurations(at offsets: IndexSet) {
+        searchConfigurations.remove(atOffsets: offsets)
+        persistSearchConfigurations()
+        clearSearchResults()
+        Task { await fetchLatestInventory() }
+    }
+
+    func moveSearchConfigurations(from source: IndexSet, to destination: Int) {
+        searchConfigurations.move(fromOffsets: source, toOffset: destination)
+        persistSearchConfigurations()
+        clearSearchResults()
+        Task { await fetchLatestInventory() }
+    }
+
     private func persistSearchConfigurations() {
         do {
             let data = try JSONEncoder().encode(searchConfigurations)

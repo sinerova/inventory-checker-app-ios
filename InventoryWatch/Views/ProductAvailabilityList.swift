@@ -17,6 +17,9 @@ struct ProductAvailabilityList: View {
     let categoryURL: () -> URL?
     let showPDPPreview: Bool
     @AppStorage("useLargeText") private var useLargeText: Bool = false
+    @Environment(\.openURL) private var openURL
+    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.colorSchemeContrast) private var colorSchemeContrast
 
     var body: some View {
         let productFont = useLargeText ? Font.title.weight(.medium) : Font.body.weight(.medium)
@@ -51,26 +54,40 @@ struct ProductAvailabilityList: View {
                         if let info = pickupInfo[partNumber] {
                             let countText = info.count == 1 ? "1 store" : "\(info.count) stores"
                             let quoteText = info.quote ?? "Available for pickup"
-                            Text("Pickup: \(quoteText) • \(countText)")
-                                .font(useLargeText ? .caption : .caption2)
-                                .foregroundColor(.green)
-                        } else {
-                            Text("Pickup: Unavailable")
-                                .font(useLargeText ? .caption : .caption2)
-                                .foregroundColor(.secondary)
-                        }
-                        Button(action: {
-                            if let url = productURL(partNumber) {
-                                NSWorkspace.shared.open(url)
-                            } else if let url = categoryURL() {
-                                NSWorkspace.shared.open(url)
+                            HStack(spacing: 4) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .imageScale(.small)
+                                Text("Pickup: \(quoteText) • \(countText)")
                             }
-                        }) {
-                            Text("Order Online")
-                                .font(useLargeText ? .caption : .caption2)
-                                .foregroundColor(.blue)
+                            .font(useLargeText ? .caption : .caption2)
+                            .fontWeight(colorSchemeContrast == .increased ? .semibold : .regular)
+                            .foregroundColor(.green)
+                            .accessibilityElement(children: .combine)
+                            .accessibilityLabel("Available for pickup: \(quoteText), at \(countText)")
+                        } else {
+                            HStack(spacing: 4) {
+                                Image(systemName: "xmark.circle")
+                                    .imageScale(.small)
+                                Text("Pickup: Unavailable")
+                            }
+                            .font(useLargeText ? .caption : .caption2)
+                            .fontWeight(colorSchemeContrast == .increased ? .semibold : .regular)
+                            .foregroundColor(.secondary)
+                            .accessibilityElement(children: .combine)
+                            .accessibilityLabel("Pickup: Unavailable")
                         }
-                        .buttonStyle(PlainButtonStyle())
+                        if let targetURL = productURL(partNumber) ?? categoryURL() {
+                            Button(action: {
+                                openURL(targetURL)
+                            }) {
+                                Text("Order Online")
+                                    .font(useLargeText ? .caption : .caption2)
+                                    .fontWeight(colorSchemeContrast == .increased ? .semibold : .medium)
+                                    .foregroundColor(.accentColor)
+                            }
+                            .buttonStyle(.borderless)
+                            .accessibilityLabel("Order \(name) online")
+                        }
                     }
                     .padding(.vertical, 2)
                 }

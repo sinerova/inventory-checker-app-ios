@@ -63,6 +63,7 @@ struct SettingsView: View {
     @AppStorage("customSkuNickname") private var customSkuNickname = ""
     @AppStorage("useLargeText") private var useLargeText: Bool = false
     @AppStorage("shouldIncludeNearbyStores") private var shouldIncludeNearbyStores: Bool = true
+    @AppStorage("appAppearance") private var appAppearance: AppAppearance = .system
     
     @State private var selectedCountryIndex = 0
     @State private var selectedSearchID: UUID?
@@ -125,6 +126,7 @@ struct SettingsView: View {
             maxHeight: .infinity,
             alignment: .center
         )
+        .preferredColorScheme(appAppearance.colorScheme)
         .onAppear { onAppearSetup() }
         .onChange(of: selectedSearchID) { _, newValue in handleSelectedSearchChange(newValue) }
         .onChange(of: selectedCountryIndex) { _, newValue in handleSelectedCountryIndexChange(newValue) }
@@ -228,13 +230,23 @@ struct SettingsView: View {
     }
 
     @ViewBuilder private var rightControlsView: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .top) {
                 Text("Custom SKU")
                 VStack {
                     TextField("Enter a custom SKU", text: $customSku)
                     TextField("Custom SKU Nickname", text: $customSkuNickname)
                 }
+            }
+            
+            Picker("Appearance", selection: $appAppearance) {
+                ForEach(AppAppearance.allCases) { appearance in
+                    Text(appearance.displayName).tag(appearance)
+                }
+            }
+            .pickerStyle(.segmented)
+            .onChange(of: appAppearance) { _, newAppearance in
+                newAppearance.applyMacOSAppearance()
             }
             
             Toggle(isOn: $useLargeText) {

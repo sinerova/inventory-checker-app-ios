@@ -7,6 +7,55 @@
 
 import Foundation
 import Combine
+import SwiftUI
+
+#if os(macOS)
+import AppKit
+#endif
+
+public enum AppAppearance: String, CaseIterable, Identifiable, Codable {
+    case system = "system"
+    case light = "light"
+    case dark = "dark"
+
+    public var id: String { rawValue }
+
+    public var displayName: String {
+        switch self {
+        case .system:
+            return "System"
+        case .light:
+            return "Light"
+        case .dark:
+            return "Dark"
+        }
+    }
+
+    public var colorScheme: ColorScheme? {
+        switch self {
+        case .system:
+            return nil
+        case .light:
+            return .light
+        case .dark:
+            return .dark
+        }
+    }
+
+    #if os(macOS)
+    @MainActor
+    public func applyMacOSAppearance() {
+        switch self {
+        case .system:
+            NSApp.appearance = nil
+        case .light:
+            NSApp.appearance = NSAppearance(named: .aqua)
+        case .dark:
+            NSApp.appearance = NSAppearance(named: .darkAqua)
+        }
+    }
+    #endif
+}
 
 enum LegacyPreferencesMigration {
     static let previousBundleIdentifier = "com.worthbak.InventoryWatch"
@@ -116,6 +165,11 @@ struct SearchConfiguration: Codable, Hashable, Identifiable {
 
 extension UserDefaults {
     
+    @objc dynamic var appAppearance: String {
+        get { string(forKey: "appAppearance") ?? AppAppearance.system.rawValue }
+        set { setValue(newValue, forKey: "appAppearance") }
+    }
+    
     @objc dynamic var preferredStoreNumber: String {
         get { string(forKey: "preferredStoreNumber") ?? "" }
         set { setValue(newValue, forKey: "preferredStoreNumber") }
@@ -148,6 +202,16 @@ struct DefaultsVendor {
         let value = UserDefaults.standard.string(forKey: "preferredCountry") ?? "US"
         
         return Countries[value] ?? USData
+    }
+
+    var appAppearance: AppAppearance {
+        get {
+            let value = UserDefaults.standard.string(forKey: "appAppearance") ?? AppAppearance.system.rawValue
+            return AppAppearance(rawValue: value) ?? .system
+        }
+        nonmutating set {
+            UserDefaults.standard.set(newValue.rawValue, forKey: "appAppearance")
+        }
     }
     
     var preferredProductFamily: ProductFamily {

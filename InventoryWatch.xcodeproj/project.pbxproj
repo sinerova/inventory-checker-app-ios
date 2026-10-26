@@ -72,6 +72,73 @@
 		46F13B112E80009000CBE7DB /* iPad-Air-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F13B102E80009000CBE7DB /* iPad-Air-intl.json */; };
 		46F13B132E8000A000CBE7DB /* iPad-Ipad-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F13B122E8000A000CBE7DB /* iPad-Ipad-intl.json */; };
 		46F13B152E8000B000CBE7DB /* iPad-Mini-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F13B142E8000B000CBE7DB /* iPad-Mini-intl.json */; };
+		46F19A202739DA7300C1BAC2 /* InventoryWatchiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F19A102739DA7300C1BAC2 /* InventoryWatchiOSApp.swift */; };
+		46F19A212739DA7300C1BAC2 /* IOSContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F19A112739DA7300C1BAC2 /* IOSContentView.swift */; };
+		46F19A222739DA7300C1BAC2 /* IOSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F19A122739DA7300C1BAC2 /* IOSSettingsView.swift */; };
+		46F19A232739DA7300C1BAC2 /* IOSSearchEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F19A132739DA7300C1BAC2 /* IOSSearchEditView.swift */; };
+		46F19A242739DA7300C1BAC2 /* BackgroundRefreshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F19A142739DA7300C1BAC2 /* BackgroundRefreshManager.swift */; };
+		46F19A3002739DA7300C1BAC2 /* PartAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3885D54D2891713200BD6A78 /* PartAvailability.swift */; };
+		46F19A3012739DA7300C1BAC2 /* SKUData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386FDC67273A18F800C1BAC2 /* SKUData.swift */; };
+		46F19A3022739DA7300C1BAC2 /* DefaultsVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385886B62908283F003D3C80 /* DefaultsVendor.swift */; };
+		46F19A3032739DA7300C1BAC2 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D307DA2745E2E700A0686D /* Analytics.swift */; };
+		46F19A3042739DA7300C1BAC2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386FDC69273A200000C1BAC2 /* NotificationManager.swift */; };
+		46F19A3052739DA7300C1BAC2 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1C21927E6714E0047703D /* Helpers.swift */; };
+		46F19A3062739DA7300C1BAC2 /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895BE93290B101B00FBC188 /* NotificationSender.swift */; };
+		46F19A3072739DA7300C1BAC2 /* ModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385886AC290827A6003D3C80 /* ModelError.swift */; };
+		46F19A3082739DA7300C1BAC2 /* FulfillmentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3885D54B2891711E00BD6A78 /* FulfillmentStore.swift */; };
+		46F19A3092739DA7300C1BAC2 /* JSONCatalogAVP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F11C7A304B9E0B0000EBF2 /* JSONCatalogAVP.swift */; };
+		46F19A30A2739DA7300C1BAC2 /* JSONCatalogHomePod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F11C7B304B9E0B0000EBF2 /* JSONCatalogHomePod.swift */; };
+		46F19A30B2739DA7300C1BAC2 /* JSONCatalogAirPods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F11C79304B9E0B0000EBF2 /* JSONCatalogAirPods.swift */; };
+		46F19A30C2739DA7300C1BAC2 /* StoreBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3891902E28E8831B0051FE3A /* StoreBootstrap.swift */; };
+		46F19A30D2739DA7300C1BAC2 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385886B429082831003D3C80 /* ViewModel.swift */; };
+		46F19A30E2739DA7300C1BAC2 /* SKUDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385886AE290827D6003D3C80 /* SKUDataLoader.swift */; };
+		46F19A30F2739DA7300C1BAC2 /* CatalogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F13B002E80001000CBE7DB /* CatalogTypes.swift */; };
+		46F19A3102739DA7300C1BAC2 /* JSONCatalogMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F13B022E80002000CBE7DB /* JSONCatalogMac.swift */; };
+		46F19A3112739DA7300C1BAC2 /* JSONCatalogiPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F13B042E80003000CBE7DB /* JSONCatalogiPhone.swift */; };
+		46F19A3122739DA7300C1BAC2 /* JSONCatalogAppleWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F13B062E80004000CBE7DB /* JSONCatalogAppleWatch.swift */; };
+		46F19A3132739DA7300C1BAC2 /* ProductAvailabilityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F13B082E80005000CBE7DB /* ProductAvailabilityList.swift */; };
+		46F19A3142739DA7300C1BAC2 /* JSONCatalogiPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F13B0A2E80006000CBE7DB /* JSONCatalogiPad.swift */; };
+		46F19A3152739DA7300C1BAC2 /* FulfillmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385886B02908280E003D3C80 /* FulfillmentModel.swift */; };
+		46F19A3162739DA7300C1BAC2 /* AppleWatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895BE91290ACE5000FBC188 /* AppleWatchData.swift */; };
+		46F19A3172739DA7300C1BAC2 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D0C3A1273C60B500A7DE65 /* Countries.swift */; };
+		46F19A5002739DA7300C1BAC2 /* Mac-Imac-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 4691124C2E7CB945004C26BC /* Mac-Imac-intl.json */; };
+		46F19A5012739DA7300C1BAC2 /* Mac-MacbookPro-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 4691124E2E7CB945004C26BC /* Mac-MacbookPro-intl.json */; };
+		46F19A5022739DA7300C1BAC2 /* Mac-Mini-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 4691124F2E7CB945004C26BC /* Mac-Mini-intl.json */; };
+		46F19A5032739DA7300C1BAC2 /* Mac-Studio-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 469112522E7CB945004C26BC /* Mac-Studio-intl.json */; };
+		46F19A5042739DA7300C1BAC2 /* Mac-MacbookAir-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 4691124D2E7CB945004C26BC /* Mac-MacbookAir-intl.json */; };
+		46F19A5052739DA7300C1BAC2 /* AirPods-Max2-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C93304C95120000EBF2 /* AirPods-Max2-intl.json */; };
+		46F19A5062739DA7300C1BAC2 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 38E4279D273EF542006BF6D7 /* Credits.rtf */; };
+		46F19A5072739DA7300C1BAC2 /* Stores_LocalBootstrap.json in Resources */ = {isa = PBXBuildFile; fileRef = 3891902C28E882070051FE3A /* Stores_LocalBootstrap.json */; };
+		46F19A5082739DA7300C1BAC2 /* Stores_GlobalBootstrap.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F134AC2E75EF0A00CBE7DB /* Stores_GlobalBootstrap.json */; };
+		46F19A5092739DA7300C1BAC2 /* AppleWatch-AppleWatch-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F134C62E7C3B0A00CBE7DB /* AppleWatch-AppleWatch-intl.json */; };
+		46F19A50A2739DA7300C1BAC2 /* AppleWatch-AppleWatchUltra-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F134C82E7C3B0A00CBE7DB /* AppleWatch-AppleWatchUltra-intl.json */; };
+		46F19A50B2739DA7300C1BAC2 /* Iphone-Air-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F134CD2E7C3B0A00CBE7DB /* Iphone-Air-intl.json */; };
+		46F19A50C2739DA7300C1BAC2 /* Iphone-16-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F134C92E7C3B0A00CBE7DB /* Iphone-16-intl.json */; };
+		46F19A50D2739DA7300C1BAC2 /* Iphone-17-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F134CB2E7C3B0A00CBE7DB /* Iphone-17-intl.json */; };
+		46F19A50E2739DA7300C1BAC2 /* AppleWatch-AppleWatchSe-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F134C72E7C3B0A00CBE7DB /* AppleWatch-AppleWatchSe-intl.json */; };
+		46F19A50F2739DA7300C1BAC2 /* iPad-Pro-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F13B0C2E80008000CBE7DB /* iPad-Pro-intl.json */; };
+		46F19A5102739DA7300C1BAC2 /* iPad-Air-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F13B102E80009000CBE7DB /* iPad-Air-intl.json */; };
+		46F19A5112739DA7300C1BAC2 /* AppleWatch-AppleWatchHermesUltra-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C6A304B80560000EBF2 /* AppleWatch-AppleWatchHermesUltra-intl.json */; };
+		46F19A5122739DA7300C1BAC2 /* AppleWatch-AppleWatchHermes-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C69304B80560000EBF2 /* AppleWatch-AppleWatchHermes-intl.json */; };
+		46F19A5132739DA7300C1BAC2 /* iPad-102-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C6B304B80560000EBF2 /* iPad-102-intl.json */; };
+		46F19A5142739DA7300C1BAC2 /* iPhone-17e-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C6C304B80560000EBF2 /* iPhone-17e-intl.json */; };
+		46F19A5152739DA7300C1BAC2 /* iPhone-CarrierOffers-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C6D304B80560000EBF2 /* iPhone-CarrierOffers-intl.json */; };
+		46F19A5162739DA7300C1BAC2 /* Mac-StudioDisplay-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C6F304B80560000EBF2 /* Mac-StudioDisplay-intl.json */; };
+		46F19A5172739DA7300C1BAC2 /* Mac-StudioDisplayXdr-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C70304B80560000EBF2 /* Mac-StudioDisplayXdr-intl.json */; };
+		46F19A5182739DA7300C1BAC2 /* Mac-MacbookNeo-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C6E304B80560000EBF2 /* Mac-MacbookNeo-intl.json */; };
+		46F19A5192739DA7300C1BAC2 /* iPad-Ipad-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F13B122E8000A000CBE7DB /* iPad-Ipad-intl.json */; };
+		46F19A51A2739DA7300C1BAC2 /* iPad-Mini-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F13B142E8000B000CBE7DB /* iPad-Mini-intl.json */; };
+		46F19A51B2739DA7300C1BAC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 386FDC5D2739DA7300C1BAC2 /* Preview Assets.xcassets */; };
+		46F19A51C2739DA7300C1BAC2 /* AirPods-Pro3-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C82304C23760000EBF2 /* AirPods-Pro3-intl.json */; };
+		46F19A51D2739DA7300C1BAC2 /* AppleVisionPro-AppleVisionPro-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C83304C23760000EBF2 /* AppleVisionPro-AppleVisionPro-intl.json */; };
+		46F19A51E2739DA7300C1BAC2 /* HomePod-Mini-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C86304C23760000EBF2 /* HomePod-Mini-intl.json */; };
+		46F19A51F2739DA7300C1BAC2 /* HomePod-Homepod-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C85304C23760000EBF2 /* HomePod-Homepod-intl.json */; };
+		46F19A5202739DA7300C1BAC2 /* AppleVisionPro-ZeissOpticalInserts-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F11C84304C23760000EBF2 /* AppleVisionPro-ZeissOpticalInserts-intl.json */; };
+		46F19A5212739DA7300C1BAC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 386FDC5A2739DA7300C1BAC2 /* Assets.xcassets */; };
+		46F19A5222739DA7300C1BAC2 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F138020000000000000002 /* countries.json */; };
+		46F19A5232739DA7300C1BAC2 /* AirPods-5-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46CF2237305203B30017DCE1 /* AirPods-5-intl.json */; };
+		46F19A5242739DA7300C1BAC2 /* iPhone-18Pro-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46CF2238305203B30017DCE1 /* iPhone-18Pro-intl.json */; };
+		46F19A5252739DA7300C1BAC2 /* iPhone-Duo-intl.json in Resources */ = {isa = PBXBuildFile; fileRef = 46CF2239305203B30017DCE1 /* iPhone-Duo-intl.json */; };
 		A10000000000000000000001 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000003 /* Sparkle */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +221,13 @@
 		46F13B102E80009000CBE7DB /* iPad-Air-intl.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "iPad-Air-intl.json"; sourceTree = "<group>"; };
 		46F13B122E8000A000CBE7DB /* iPad-Ipad-intl.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "iPad-Ipad-intl.json"; sourceTree = "<group>"; };
 		46F13B142E8000B000CBE7DB /* iPad-Mini-intl.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "iPad-Mini-intl.json"; sourceTree = "<group>"; };
+		46F19A082739DA7300C1BAC2 /* InventoryWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InventoryWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		46F19A102739DA7300C1BAC2 /* InventoryWatchiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryWatchiOSApp.swift; sourceTree = "<group>"; };
+		46F19A112739DA7300C1BAC2 /* IOSContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSContentView.swift; sourceTree = "<group>"; };
+		46F19A122739DA7300C1BAC2 /* IOSSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSSettingsView.swift; sourceTree = "<group>"; };
+		46F19A132739DA7300C1BAC2 /* IOSSearchEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSSearchEditView.swift; sourceTree = "<group>"; };
+		46F19A142739DA7300C1BAC2 /* BackgroundRefreshManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundRefreshManager.swift; sourceTree = "<group>"; };
+		46F19A152739DA7300C1BAC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A10000000000000000000004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +245,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		46F11C55304B78510000EBF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46F19A062739DA7300C1BAC2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -203,6 +284,7 @@
 		386FDC542739DA7300C1BAC2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				46F19A082739DA7300C1BAC2 /* InventoryWatch.app */,
 				386FDC532739DA7300C1BAC2 /* InventoryWatch.app */,
 				46F11C58304B78510000EBF2 /* InventoryWatchTests.xctest */,
 			);
@@ -212,6 +294,7 @@
 		386FDC552739DA7300C1BAC2 /* InventoryWatch */ = {
 			isa = PBXGroup;
 			children = (
+				46F19A092739DA7300C1BAC2 /* iOS */,
 				46F134CE2E7C3B0A00CBE7DB /* Catalogs */,
 				386FDC562739DA7300C1BAC2 /* InventoryWatchApp.swift */,
 				386FDC582739DA7300C1BAC2 /* ContentView.swift */,
@@ -312,6 +395,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		46F19A092739DA7300C1BAC2 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				46F19A102739DA7300C1BAC2 /* InventoryWatchiOSApp.swift */,
+				46F19A112739DA7300C1BAC2 /* IOSContentView.swift */,
+				46F19A122739DA7300C1BAC2 /* IOSSettingsView.swift */,
+				46F19A132739DA7300C1BAC2 /* IOSSearchEditView.swift */,
+				46F19A142739DA7300C1BAC2 /* BackgroundRefreshManager.swift */,
+				46F19A152739DA7300C1BAC2 /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -358,6 +454,25 @@
 			productReference = 46F11C58304B78510000EBF2 /* InventoryWatchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		46F19A012739DA7300C1BAC2 /* InventoryWatch-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46F19A022739DA7300C1BAC2 /* Build configuration list for PBXNativeTarget "InventoryWatch-iOS" */;
+			buildPhases = (
+				46F19A052739DA7300C1BAC2 /* Sources */,
+				46F19A062739DA7300C1BAC2 /* Frameworks */,
+				46F19A072739DA7300C1BAC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "InventoryWatch-iOS";
+			packageProductDependencies = (
+			);
+			productName = InventoryWatch;
+			productReference = 46F19A082739DA7300C1BAC2 /* InventoryWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -366,7 +481,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2700;
-				LastUpgradeCheck = 2700;
+				LastUpgradeCheck = 2710;
 				TargetAttributes = {
 					386FDC522739DA7300C1BAC2 = {
 						CreatedOnToolsVersion = 13.1;
@@ -374,6 +489,9 @@
 					46F11C57304B78510000EBF2 = {
 						CreatedOnToolsVersion = 27.0;
 						TestTargetID = 386FDC522739DA7300C1BAC2;
+					};
+					46F19A012739DA7300C1BAC2 = {
+						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
@@ -395,6 +513,7 @@
 			targets = (
 				386FDC522739DA7300C1BAC2 /* InventoryWatch */,
 				46F11C57304B78510000EBF2 /* InventoryWatchTests */,
+				46F19A012739DA7300C1BAC2 /* InventoryWatch-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -452,6 +571,51 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		46F19A072739DA7300C1BAC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46F19A5002739DA7300C1BAC2 /* Mac-Imac-intl.json in Resources */,
+				46F19A5012739DA7300C1BAC2 /* Mac-MacbookPro-intl.json in Resources */,
+				46F19A5022739DA7300C1BAC2 /* Mac-Mini-intl.json in Resources */,
+				46F19A5032739DA7300C1BAC2 /* Mac-Studio-intl.json in Resources */,
+				46F19A5042739DA7300C1BAC2 /* Mac-MacbookAir-intl.json in Resources */,
+				46F19A5052739DA7300C1BAC2 /* AirPods-Max2-intl.json in Resources */,
+				46F19A5062739DA7300C1BAC2 /* Credits.rtf in Resources */,
+				46F19A5072739DA7300C1BAC2 /* Stores_LocalBootstrap.json in Resources */,
+				46F19A5082739DA7300C1BAC2 /* Stores_GlobalBootstrap.json in Resources */,
+				46F19A5092739DA7300C1BAC2 /* AppleWatch-AppleWatch-intl.json in Resources */,
+				46F19A50A2739DA7300C1BAC2 /* AppleWatch-AppleWatchUltra-intl.json in Resources */,
+				46F19A50B2739DA7300C1BAC2 /* Iphone-Air-intl.json in Resources */,
+				46F19A50C2739DA7300C1BAC2 /* Iphone-16-intl.json in Resources */,
+				46F19A50D2739DA7300C1BAC2 /* Iphone-17-intl.json in Resources */,
+				46F19A50E2739DA7300C1BAC2 /* AppleWatch-AppleWatchSe-intl.json in Resources */,
+				46F19A50F2739DA7300C1BAC2 /* iPad-Pro-intl.json in Resources */,
+				46F19A5102739DA7300C1BAC2 /* iPad-Air-intl.json in Resources */,
+				46F19A5112739DA7300C1BAC2 /* AppleWatch-AppleWatchHermesUltra-intl.json in Resources */,
+				46F19A5122739DA7300C1BAC2 /* AppleWatch-AppleWatchHermes-intl.json in Resources */,
+				46F19A5132739DA7300C1BAC2 /* iPad-102-intl.json in Resources */,
+				46F19A5142739DA7300C1BAC2 /* iPhone-17e-intl.json in Resources */,
+				46F19A5152739DA7300C1BAC2 /* iPhone-CarrierOffers-intl.json in Resources */,
+				46F19A5162739DA7300C1BAC2 /* Mac-StudioDisplay-intl.json in Resources */,
+				46F19A5172739DA7300C1BAC2 /* Mac-StudioDisplayXdr-intl.json in Resources */,
+				46F19A5182739DA7300C1BAC2 /* Mac-MacbookNeo-intl.json in Resources */,
+				46F19A5192739DA7300C1BAC2 /* iPad-Ipad-intl.json in Resources */,
+				46F19A51A2739DA7300C1BAC2 /* iPad-Mini-intl.json in Resources */,
+				46F19A51B2739DA7300C1BAC2 /* Preview Assets.xcassets in Resources */,
+				46F19A51C2739DA7300C1BAC2 /* AirPods-Pro3-intl.json in Resources */,
+				46F19A51D2739DA7300C1BAC2 /* AppleVisionPro-AppleVisionPro-intl.json in Resources */,
+				46F19A51E2739DA7300C1BAC2 /* HomePod-Mini-intl.json in Resources */,
+				46F19A51F2739DA7300C1BAC2 /* HomePod-Homepod-intl.json in Resources */,
+				46F19A5202739DA7300C1BAC2 /* AppleVisionPro-ZeissOpticalInserts-intl.json in Resources */,
+				46F19A5212739DA7300C1BAC2 /* Assets.xcassets in Resources */,
+				46F19A5222739DA7300C1BAC2 /* countries.json in Resources */,
+				46F19A5232739DA7300C1BAC2 /* AirPods-5-intl.json in Resources */,
+				46F19A5242739DA7300C1BAC2 /* iPhone-18Pro-intl.json in Resources */,
+				46F19A5252739DA7300C1BAC2 /* iPhone-Duo-intl.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -493,6 +657,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46F19A052739DA7300C1BAC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46F19A202739DA7300C1BAC2 /* InventoryWatchiOSApp.swift in Sources */,
+				46F19A212739DA7300C1BAC2 /* IOSContentView.swift in Sources */,
+				46F19A222739DA7300C1BAC2 /* IOSSettingsView.swift in Sources */,
+				46F19A232739DA7300C1BAC2 /* IOSSearchEditView.swift in Sources */,
+				46F19A242739DA7300C1BAC2 /* BackgroundRefreshManager.swift in Sources */,
+				46F19A3002739DA7300C1BAC2 /* PartAvailability.swift in Sources */,
+				46F19A3012739DA7300C1BAC2 /* SKUData.swift in Sources */,
+				46F19A3022739DA7300C1BAC2 /* DefaultsVendor.swift in Sources */,
+				46F19A3032739DA7300C1BAC2 /* Analytics.swift in Sources */,
+				46F19A3042739DA7300C1BAC2 /* NotificationManager.swift in Sources */,
+				46F19A3052739DA7300C1BAC2 /* Helpers.swift in Sources */,
+				46F19A3062739DA7300C1BAC2 /* NotificationSender.swift in Sources */,
+				46F19A3072739DA7300C1BAC2 /* ModelError.swift in Sources */,
+				46F19A3082739DA7300C1BAC2 /* FulfillmentStore.swift in Sources */,
+				46F19A3092739DA7300C1BAC2 /* JSONCatalogAVP.swift in Sources */,
+				46F19A30A2739DA7300C1BAC2 /* JSONCatalogHomePod.swift in Sources */,
+				46F19A30B2739DA7300C1BAC2 /* JSONCatalogAirPods.swift in Sources */,
+				46F19A30C2739DA7300C1BAC2 /* StoreBootstrap.swift in Sources */,
+				46F19A30D2739DA7300C1BAC2 /* ViewModel.swift in Sources */,
+				46F19A30E2739DA7300C1BAC2 /* SKUDataLoader.swift in Sources */,
+				46F19A30F2739DA7300C1BAC2 /* CatalogTypes.swift in Sources */,
+				46F19A3102739DA7300C1BAC2 /* JSONCatalogMac.swift in Sources */,
+				46F19A3112739DA7300C1BAC2 /* JSONCatalogiPhone.swift in Sources */,
+				46F19A3122739DA7300C1BAC2 /* JSONCatalogAppleWatch.swift in Sources */,
+				46F19A3132739DA7300C1BAC2 /* ProductAvailabilityList.swift in Sources */,
+				46F19A3142739DA7300C1BAC2 /* JSONCatalogiPad.swift in Sources */,
+				46F19A3152739DA7300C1BAC2 /* FulfillmentModel.swift in Sources */,
+				46F19A3162739DA7300C1BAC2 /* AppleWatchData.swift in Sources */,
+				46F19A3172739DA7300C1BAC2 /* Countries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +949,68 @@
 			};
 			name = Release;
 		};
+		46F19A032739DA7300C1BAC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "\"InventoryWatch/Preview Content\"";
+				DEVELOPMENT_TEAM = BWYHYB87T8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = InventoryWatch/iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MARKETING_VERSION = "3.0.0-RC.2";
+				PRODUCT_BUNDLE_IDENTIFIER = net.brendamour.InventoryWatch.ios;
+				PRODUCT_NAME = InventoryWatch;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		46F19A042739DA7300C1BAC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "\"InventoryWatch/Preview Content\"";
+				DEVELOPMENT_TEAM = BWYHYB87T8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = InventoryWatch/iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MARKETING_VERSION = "3.0.0-RC.2";
+				PRODUCT_BUNDLE_IDENTIFIER = net.brendamour.InventoryWatch.ios;
+				PRODUCT_NAME = InventoryWatch;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -775,6 +1037,15 @@
 			buildConfigurations = (
 				46F11C5E304B78510000EBF2 /* Debug */,
 				46F11C5F304B78510000EBF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46F19A022739DA7300C1BAC2 /* Build configuration list for PBXNativeTarget "InventoryWatch-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46F19A032739DA7300C1BAC2 /* Debug */,
+				46F19A042739DA7300C1BAC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
