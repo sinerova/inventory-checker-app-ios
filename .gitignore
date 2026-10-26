@@ -16,8 +16,8 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
-.DS_Store
-.DS_STORE
+*.xcuserdatad/
+*.xcuserstate
 
 ## Other
 *.moved-aside
@@ -29,6 +29,7 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+*.xcarchive
 
 ## Playgrounds
 timeline.xctimeline
@@ -68,8 +69,49 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
-__pycache__
 
+# Python bytecode and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
 
+# Logs and local tool state
 *.log
 .kilo
+
+# Local environment and secret configuration files
+.env
+.env.*
+!.env.example
+*.env
+.secrets
+
+# Code signing certificates, keys, and provisioning profiles
+*.mobileprovision
+*.provisionprofile
+*.p12
+*.pfx
+*.cer
+*.crt
+*.der
+*.key
+*.pem
+*.pkcs12
+
+# macOS system and machine-specific files
+.DS_Store
+.DS_Store?
+.DS_STORE
+._*
+.Spotlight-V100
+.Trashes
+
+# Local developer and editor configurations
+.idea/
+.vscode/
+*.swp
+*~
